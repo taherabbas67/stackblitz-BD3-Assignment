@@ -24,8 +24,8 @@ app.get('/cart/add', (req, res) => {
   let name = req.query.name;
   let price = parseFloat(req.query.price);
   let quantity = parseInt(req.query.quantity);
-  let cartItems = addProductToCart(cart, productId, name, price, quantity);
-  res.json({ cartItems });
+  cart = addProductToCart(cart, productId, name, price, quantity);
+  res.json({ cart });
 });
 
 // End point 2
@@ -40,8 +40,8 @@ function editQuantityInCart(cart, productId, quantity) {
 app.get('/cart/edit', (req, res) => {
   let productId = parseInt(req.query.productId);
   let quantity = parseInt(req.query.quantity);
-  let cartItems = editQuantityInCart(cart, productId, quantity);
-  res.json({ cartItems });
+  cart = editQuantityInCart(cart, productId, quantity);
+  res.json({ cart });
 });
 
 // End point 3
